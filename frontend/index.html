@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hit Song Predictor | AI-Powered Music Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Animated Background -->
+        <div class="bg-gradient"></div>
+        <div class="bg-grid"></div>
+        
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18V5l12-2v13"/>
+                        <circle cx="6" cy="18" r="3"/>
+                        <circle cx="18" cy="16" r="3"/>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <h1>Hit Predictor</h1>
+                    <span class="logo-badge">AI</span>
+                </div>
+            </div>
+            <p class="tagline">Predict song success with machine learning</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Input Card -->
+            <section class="input-card">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <h2>Analyze a Song</h2>
+                        <p>Enter song details or paste a Spotify link</p>
+                    </div>
+                    
+                    <form id="prediction-form" class="prediction-form">
+                        <!-- Song Title -->
+                        <div class="input-group">
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 18V5l12-2v13"/>
+                                    <circle cx="6" cy="18" r="3"/>
+                                    <circle cx="18" cy="16" r="3"/>
+                                </svg>
+                            </div>
+                            <div class="input-wrapper">
+                                <input 
+                                    type="text" 
+                                    id="song-title" 
+                                    placeholder=" "
+                                    autocomplete="off"
+                                >
+                                <label for="song-title">Song Title</label>
+                                <div class="input-highlight"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Artist Name -->
+                        <div class="input-group">
+                            <div class="input-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                            </div>
+                            <div class="input-wrapper">
+                                <input 
+                                    type="text" 
+                                    id="artist-name" 
+                                    placeholder=" "
+                                    autocomplete="off"
+                                >
+                                <label for="artist-name">Artist Name</label>
+                                <div class="input-highlight"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Divider -->
+                        <div class="divider">
+                            <span>or</span>
+                        </div>
+                        
+                        <!-- Spotify Link -->
+                        <div class="input-group spotify-input">
+                            <div class="input-icon spotify">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                                </svg>
+                            </div>
+                            <div class="input-wrapper">
+                                <input 
+                                    type="text" 
+                                    id="spotify-link" 
+                                    placeholder=" "
+                                    autocomplete="off"
+                                >
+                                <label for="spotify-link">Spotify Track URL</label>
+                                <div class="input-highlight"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <button type="submit" id="predict-btn" class="submit-btn">
+                            <span class="btn-content">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <span>Predict Now</span>
+                            </span>
+                            <span class="btn-loading">
+                                <svg class="spinner" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="32" stroke-linecap="round"/>
+                                </svg>
+                                <span>Analyzing...</span>
+                            </span>
+                        </button>
+                    </form>
+                    
+                    <!-- Quick Examples -->
+                    <div class="quick-examples">
+                        <span class="examples-label">Try these:</span>
+                        <button class="example-chip" data-title="Comedy" data-artist="Gen Hoshino">
+                            Comedy - Gen Hoshino
+                        </button>
+                        <button class="example-chip" data-title="Ghost - Acoustic" data-artist="Ben Woodward">
+                            Ghost - Ben Woodward
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Result Card -->
+            <section id="result-card" class="result-card hidden">
+                <div class="card-glow result-glow"></div>
+                <div class="card-content">
+                    <!-- Song Header -->
+                    <div class="result-header">
+                        <img id="album-art" class="album-art" src="" alt="Album Art">
+                        <div class="song-meta">
+                            <h2 id="result-title" class="result-title"></h2>
+                            <p id="result-artist" class="result-artist"></p>
+                            <p id="result-album" class="result-album"></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Prediction Result -->
+                    <div class="prediction-result">
+                        <div id="prediction-badge" class="prediction-badge">
+                            <span id="prediction-label" class="prediction-label"></span>
+                        </div>
+                        <div class="confidence-section">
+                            <div class="confidence-header">
+                                <span>Confidence Score</span>
+                                <span id="confidence-value" class="confidence-value"></span>
+                            </div>
+                            <div class="confidence-track">
+                                <div id="confidence-fill" class="confidence-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Audio Features -->
+                    <div class="features-section">
+                        <h3 class="features-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 3v18h18"/>
+                                <path d="M18 17V9"/>
+                                <path d="M13 17V5"/>
+                                <path d="M8 17v-3"/>
+                            </svg>
+                            Audio Analysis
+                        </h3>
+                        <div id="features-grid" class="features-grid"></div>
+                    </div>
+                    
+                    <!-- Actions -->
+                    <div class="result-actions">
+                        <a id="spotify-btn" class="action-btn spotify-action" href="#" target="_blank">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                            </svg>
+                            Open in Spotify
+                        </a>
+                        <button id="new-prediction-btn" class="action-btn new-action">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                            New Prediction
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Error Toast -->
+            <div id="error-toast" class="error-toast hidden">
+                <svg class="error-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="12" y1="8" x2="12" y2="12"/>
+                    <line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+                <span id="error-message"></span>
+                <button class="error-close" onclick="hideError()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Built with <span class="heart">♥</span> using Django, scikit-learn & Spotify API</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
