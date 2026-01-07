@@ -32,9 +32,12 @@ Thumbs.db
 .env
 .env.local
 
-# Model files (if too large)
-# Uncomment if you don't want to track model files
-# *.pkl
+# Model files (too large for GitHub)
+*.pkl
+hit_song_model_*.pkl
+
+# Large dataset files
+cleaned_data.csv
 
 # Database
 *.db
