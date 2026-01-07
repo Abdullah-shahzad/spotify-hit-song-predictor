@@ -433,6 +433,12 @@ python manage.py clear_database
 - Output: HIT (1) or FLOP (0) with confidence
 - Loaded at runtime and cached in memory
 
+**Note:** Model files (`.pkl`) and the dataset (`cleaned_data.csv`) are not included in this repository due to size limitations. You need to:
+1. Place `hit_song_model_selected.pkl` in `backend/predictions/ml_models/` directory
+2. Place `cleaned_data.csv` in the project root directory (optional, for dataset import)
+
+The model file is required for predictions to work. The dataset file is optional but recommended for faster lookups.
+
 ---
 
 ## 🚀 Setup Instructions
